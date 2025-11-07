@@ -177,7 +177,13 @@ class ContentAnalyzer {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new ContentAnalyzer());
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.ContentAnalyzer) {
+      window.ContentAnalyzer = new ContentAnalyzer();
+    }
+  });
 } else {
-  new ContentAnalyzer();
+  if (!window.ContentAnalyzer) {
+    window.ContentAnalyzer = new ContentAnalyzer();
+  }
 }
