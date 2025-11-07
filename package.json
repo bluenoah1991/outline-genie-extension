@@ -1,0 +1,14 @@
+{
+  "name": "outline-genie-extension",
+  "version": "1.0.0",
+  "description": "智能页面大纲生成器",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [
+    "browser-extension",
+    "outline"
+  ],
+  "author": "bluenoah1991",
+  "license": "MIT"
+}

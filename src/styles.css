@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+:root {
+  --bg: #f8fafc;
+  --text: #1f2937;
+  --border: #e5e7eb;
+  --header-bg: #fff;
+  --primary: #3b82f6;
+  --muted: #6b7280;
+  --light-bg: #fef2f2;
+  --error: #991b1b;
+  --scrollbar: #c1c1c1;
+  --scrollbar-track: #f1f1f1;
+  --hover: rgba(59, 130, 246, .05);
+  --active: rgba(59, 130, 246, .1);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column
+}
+
+.header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--header-bg);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px
+}
+
+.header h1 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.header-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px
+}
+
+.header .meta {
+  font-size: 12px;
+  color: var(--muted)
+}
+
+.outline-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0
+}
+
+.outline-item {
+  position: relative;
+  cursor: pointer;
+  transition: all .2s ease;
+  border-left: 2px solid transparent;
+  margin: 2px 0
+}
+
+.outline-item:hover {
+  background: var(--hover)
+}
+
+.outline-item.active {
+  background: var(--active);
+  border-left-color: var(--primary)
+}
+
+.outline-content {
+  padding: 8px
+}
+
+.outline-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  word-break: break-word;
+  line-height: 1.4
+}
+
+.level-1 {
+  padding-left: 8px
+}
+
+.level-2 {
+  padding-left: 20px
+}
+
+.level-3 {
+  padding-left: 32px
+}
+
+.level-4 {
+  padding-left: 44px
+}
+
+.level-5 {
+  padding-left: 56px
+}
+
+.level-6 {
+  padding-left: 68px
+}
+
+.empty-state,
+.loading {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--muted)
+}
+
+.empty-state h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text)
+}
+
+.empty-state p {
+  font-size: 13px;
+  line-height: 1.5
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.error {
+  padding: 16px;
+  background: var(--light-bg);
+  color: var(--error);
+  border-radius: 6px;
+  margin: 16px;
+  font-size: 13px;
+  border: 1px solid #fecaca
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+  white-space: nowrap
+}
+
+.notification.show {
+  opacity: 1
+}
+
+.notification-success {
+  background: var(--success);
+  color: #fff
+}
+
+.notification-warning {
+  background: var(--warning);
+  color: #fff
+}
+
+.notification-error {
+  background: var(--danger);
+  color: #fff
+}
+
+.notification-info {
+  background: var(--primary);
+  color: #fff
+}
+
+.outline-container::-webkit-scrollbar {
+  width: 6px
+}
+
+.outline-container::-webkit-scrollbar-track {
+  background: var(--scrollbar-track)
+}
+
+.outline-container::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 3px
+}
+
+.outline-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8
+}
+
+@media (prefers-color-scheme:dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #e0e0e0;
+    --border: #333;
+    --header-bg: #2d2d2d;
+    --muted: #9e9e9e;
+    --light-bg: #7f1d1d;
+    --error: #fca5a5;
+    --scrollbar: #6b7280;
+    --scrollbar-track: #374151;
+    --hover: rgba(59, 130, 246, .1);
+    --active: rgba(59, 130, 246, .2);
+    --error-border: #991b1b
+  }
+
+  .spinner {
+    border: 2px solid #374151;
+    border-top: 2px solid #60a5fa
+  }
+}
